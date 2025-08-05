@@ -1,0 +1,105 @@
+.conteudo {
+  /* Define a área de visibilidade da imagem */
+  width: auto;
+  height: auto; /* Ou a altura que preferir */
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  position: relative; /* Importante para que a imagem seja posicionada em relação a esta div */
+}
+
+.background {
+  /* Posicionamento da imagem */
+  position: absolute;
+  top: 3rem; /* Ajuste a posição vertical conforme necessário */
+  left: 0;
+
+  opacity: 0.1; /* Define a opacidade da imagem */
+  z-index: 1;
+  /* Ajusta a imagem para que metade dela fique fora do contêiner */
+  width: 38rem; /* Faz a imagem ser o dobro da largura do contêiner */
+  height: 38rem; /* Mantém a proporção da imagem */
+
+  /* Move a imagem para a esquerda para que metade dela fique fora do ecrã */
+  transform: translateX(-50%);
+}
+
+.info {
+  width: 60vw;
+  margin-right: 5rem;
+  margin-top: 2.5rem;
+   position: relative;
+  z-index: 2; 
+}
+
+input {
+  width: 70%;
+  min-width: 15rem;
+  height: 2rem;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  margin-right: 1rem;
+  border: 1px solid #ccc;
+  background: transparent;
+  font-size: 1rem;
+  position: relative;
+  z-index: 3;
+}
+button {
+  min-width: 8rem;
+  height: 3rem;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  border: 1px solid #999999;
+  background: #2d3338;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+}
+button:hover {
+  background: #3a3f45;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.perfil {
+  display: flex;
+  margin: 2.5rem 0;
+}
+.profile {
+  border-radius: 50%;
+  border: 2px solid #e5e5e5;
+  height: 8rem;
+  width: 8rem;
+  margin-right: 2rem;
+}
+.perfil h3 {
+  margin: 0;
+  padding: 0.5rem;
+  color: #999999;
+  font-size: 1.5rem;
+}
+.perfil p {
+  margin: 1.5rem 0 0 0;
+  padding: 0.5rem;
+  color: #999999;
+  font-size: 0.8rem;
+}
+.perfil span {
+  margin: 0;
+  padding: 0.5rem;
+  color: #999999;
+  font-size: 0.8rem;
+}
+.repositorio {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  text-align: center;
+  color: #ffffff;
+}
+.info h2 {
+  color: #ffffff;
+  padding: 1rem;
+}
