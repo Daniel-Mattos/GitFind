@@ -8,6 +8,12 @@ function App() {
   const [user, setUser] = useState("")
   const [currentUser, setCurrentUser] = useState(null)
   const [repos, setRepos] = useState(null)
+  const [searchRepo, setSearchRepo] = useState("")
+
+  // Filtra os repositórios com base no input de pesquisa
+  const repositoriosFiltrados = repos?.filter((repo) =>
+    repo.name.toLowerCase().includes(searchRepo.toLowerCase())
+  )
 
   const handleGetData = async () => {
     const userData = await fetch(`https://api.github.com/users/${user}`)
@@ -37,7 +43,7 @@ function App() {
         />
         <div className="info">
           <h2>Encontre um perfil Github</h2>
-          <div>
+          <div className="search-user">
             <input
               name="usuario"
               value={user}
@@ -63,13 +69,25 @@ function App() {
               <hr />
             </>
           ) : null}
-          {repos?.length ? (         
-            <div>
-              <h4 className="repositorio">Repositórios</h4>
-              {repos.map((repo) => (
-                <ItemList key={repo.id} title={repo.name} description={repo.description} />
+          {repos?.length ? (
+            <div className="result">
+              <div className="search">
+                <h4 className="repositorio">Repositórios</h4>
+                <input
+                  name="repositorio"
+                  value={searchRepo}
+                  onChange={(event) => setSearchRepo(event.target.value)}
+                  placeholder="Buscar repositório"
+                />
+              </div>
+              {/* Mapeia os repositórios FILTRADOS para renderizar */}
+              {repositoriosFiltrados.map((repo) => (
+                <ItemList
+                  key={repo.id}
+                  title={repo.name}
+                  description={repo.description}
+                />
               ))}
-              
             </div>
           ) : null}
         </div>
